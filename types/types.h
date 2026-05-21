@@ -119,13 +119,21 @@ namespace types
         return std::to_string(quantity);
     }
 
-    typedef uint8_t TimeInForce;
-    constexpr auto TimeInForce_INVALID = std::numeric_limits<TimeInForce>::max();
-    inline auto timeInForceToString(TimeInForce tif) -> std::string {
-        if (UNLIKELY(tif == TimeInForce_INVALID)) {
+    enum class TimeInForce : char
+    {
+        DAY = 'D',
+        IOC = 'I',
+        GTC = 'G',
+        INVALID = '\xFF'
+    };
+
+    inline auto timeInForceToString(TimeInForce tif) -> std::string
+    {
+        if (UNLIKELY(tif == TimeInForce::INVALID))
+        {
             return "INVALID";
         }
-        return std::to_string(static_cast<uint32_t>(tif));
+        return std::string(1, static_cast<char>(tif));
     }
 
     typedef uint64_t TimeStamp;
