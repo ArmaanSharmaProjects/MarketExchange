@@ -4,14 +4,28 @@
 #include <string>
 #include <types/macros.h>
 
-namespace types {
-    typedef uint8_t MsgType;
-    constexpr auto MsgType_INVALID = std::numeric_limits<MsgType>::max();
-    inline auto msgTypeToString(MsgType msg_type) -> std::string {
-        if (UNLIKELY(msg_type == MsgType_INVALID)) {
+namespace types
+{
+    enum class MsgType : char
+    {
+        NEW_ORDER = 'B',
+        CANCEL_ORDER = 'C',
+        EDIT_ORDER = 'R',
+        ORDER_ACCEPTED = 'b',
+        ORDER_REPLACED = 'r',
+        ORDER_CANCELED = 'c',
+        ORDER_EXECUTED = 'e',
+        ORDER_REJECTED = 'j',
+        INVALID = '\xFF'
+    };
+
+    inline auto msgTypeToString(MsgType msg_type) -> std::string
+    {
+        if (UNLIKELY(msg_type == MsgType::INVALID))
+        {
             return "INVALID";
         }
-        return std::to_string(static_cast<uint32_t>(msg_type));
+        return std::string(1, static_cast<char>(msg_type));
     }
 
     typedef uint16_t FirmId;
