@@ -182,15 +182,20 @@ namespace types
         return std::string(1, static_cast<char>(reason));
     }
 
-    typedef uint8_t LiquidityInd;
-    constexpr auto LiquidityInd_INVALID = std::numeric_limits<LiquidityInd>::max();
-    inline auto liquidityIndToString(LiquidityInd ind) -> std::string {
-        if (UNLIKELY(ind == LiquidityInd_INVALID)) {
+    enum class LiquidityInd : char
+    {
+        MAKER = 'M',
+        TAKER = 'T',
+        INVALID = '\xFF'
+    };
+
+    inline auto liquidityIndToString(LiquidityInd ind) -> std::string
+    {
+        if (UNLIKELY(ind == LiquidityInd::INVALID))
             return "INVALID";
-        }
         return std::string(1, static_cast<char>(ind));
     }
-    
+
     typedef uint16_t RejectCode;
     constexpr auto RejectCode_INVALID = std::numeric_limits<RejectCode>::max();
     inline auto rejectCodeToString(RejectCode code) -> std::string {
