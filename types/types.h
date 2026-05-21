@@ -85,10 +85,17 @@ namespace types
         return std::string(1, static_cast<char>(side));
     }
 
-    typedef uint8_t OrderType;
-    constexpr auto OrderType_INVALID = std::numeric_limits<OrderType>::max();
-    inline auto orderTypeToString(OrderType order_type) -> std::string {
-        if (UNLIKELY(order_type == OrderType_INVALID)) {
+    enum class OrderType : char
+    {
+        LIMIT = 'L',
+        MARKET = 'M',
+        INVALID = '\xFF'
+    };
+
+    inline auto orderTypeToString(OrderType order_type) -> std::string
+    {
+        if (UNLIKELY(order_type == OrderType::INVALID))
+        {
             return "INVALID";
         }
         return std::string(1, static_cast<char>(order_type));
