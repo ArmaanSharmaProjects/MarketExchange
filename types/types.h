@@ -53,13 +53,20 @@ namespace types
         return std::string(client_order_id.data, 16);
     }
 
-    typedef uint8_t AloInst;
-    constexpr auto AloInst_INVALID = std::numeric_limits<AloInst>::max();
-    inline auto aloInstToString(AloInst alo_inst) -> std::string {
-        if (UNLIKELY(alo_inst == AloInst_INVALID)) {
+    enum class AloInst : char
+    {
+        YES = 'Y',
+        NO = 'N',
+        INVALID = '\xFF'
+    };
+
+    inline auto aloInstToString(AloInst alo_inst) -> std::string
+    {
+        if (UNLIKELY(alo_inst == AloInst::INVALID))
+        {
             return "INVALID";
         }
-        return std::to_string(static_cast<uint32_t>(alo_inst));
+        return std::string(1, static_cast<char>(alo_inst));
     }
 
     typedef uint8_t Side;
