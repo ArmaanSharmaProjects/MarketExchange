@@ -92,4 +92,68 @@ namespace types {
         }
         return std::to_string(static_cast<uint32_t>(tif));
     }
+
+    typedef uint64_t TimeStamp;
+    constexpr auto TimeStamp_INVALID = std::numeric_limits<TimeStamp>::max();
+    inline auto timeStampToString(TimeStamp timestamp) -> std::string {
+        if (UNLIKELY(timestamp == TimeStamp_INVALID)) {
+            return "INVALID";
+        }
+        return std::to_string(timestamp);
+    }
+
+    // this is internal order id used by the exchange
+    typedef uint64_t OrderId;
+    constexpr auto OrderId_INVALID = std::numeric_limits<OrderId>::max();
+    inline auto orderIdToString(OrderId order_id) -> std::string {
+        if (UNLIKELY(order_id == OrderId_INVALID)) {
+            return "INVALID";
+        }
+        return std::to_string(order_id);
+    }
+
+    typedef uint32_t CrossId;
+    constexpr auto CrossId_INVALID = std::numeric_limits<CrossId>::max();
+    inline auto crossIdToString(CrossId cross_id) -> std::string {
+        if (UNLIKELY(cross_id == CrossId_INVALID)) {
+            return "INVALID";
+        }
+        return std::to_string(cross_id);
+    }
+
+    typedef uint32_t MatchId;
+    constexpr auto MatchId_INVALID = std::numeric_limits<MatchId>::max();
+    inline auto matchIdToString(MatchId match_id) -> std::string {
+        if (UNLIKELY(match_id == MatchId_INVALID)) {
+            return "INVALID";
+        }
+        return std::to_string(match_id);
+    }
+
+    typedef uint8_t CancelReason;
+    constexpr auto CancelReason_INVALID = std::numeric_limits<CancelReason>::max();
+    inline auto cancelReasonToString(CancelReason reason) -> std::string {
+        if (UNLIKELY(reason == CancelReason_INVALID)) {
+            return "INVALID";
+        }
+        return std::string(1, static_cast<char>(reason));
+    }
+
+    typedef uint8_t LiquidityInd;
+    constexpr auto LiquidityInd_INVALID = std::numeric_limits<LiquidityInd>::max();
+    inline auto liquidityIndToString(LiquidityInd ind) -> std::string {
+        if (UNLIKELY(ind == LiquidityInd_INVALID)) {
+            return "INVALID";
+        }
+        return std::string(1, static_cast<char>(ind));
+    }
+    
+    typedef uint16_t RejectCode;
+    constexpr auto RejectCode_INVALID = std::numeric_limits<RejectCode>::max();
+    inline auto rejectCodeToString(RejectCode code) -> std::string {
+        if (UNLIKELY(code == RejectCode_INVALID)) {
+            return "INVALID";
+        }
+        return std::to_string(code);
+    }
 }
