@@ -69,10 +69,17 @@ namespace types
         return std::string(1, static_cast<char>(alo_inst));
     }
 
-    typedef uint8_t Side;
-    constexpr auto Side_INVALID = std::numeric_limits<Side>::max();
-    inline auto sideToString(Side side) -> std::string {
-        if (UNLIKELY(side == Side_INVALID)) {
+    enum class Side : char
+    {
+        BUY = 'B',
+        SELL = 'S',
+        INVALID = '\xFF'
+    };
+
+    inline auto sideToString(Side side) -> std::string
+    {
+        if (UNLIKELY(side == Side::INVALID))
+        {
             return "INVALID";
         }
         return std::string(1, static_cast<char>(side));
