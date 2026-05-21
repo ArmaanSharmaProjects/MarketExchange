@@ -30,8 +30,10 @@ namespace types
 
     typedef uint16_t FirmId;
     constexpr auto FirmId_INVALID = std::numeric_limits<FirmId>::max();
-    inline auto firmIdToString(FirmId firm_id) -> std::string {
-        if (UNLIKELY(firm_id == FirmId_INVALID)) {
+    inline auto firmIdToString(FirmId firm_id) -> std::string
+    {
+        if (UNLIKELY(firm_id == FirmId_INVALID))
+        {
             return "INVALID";
         }
         return std::to_string(firm_id);
@@ -39,17 +41,21 @@ namespace types
 
     typedef uint16_t InstrumentId;
     constexpr auto InstrumentId_INVALID = std::numeric_limits<InstrumentId>::max();
-    inline auto instrumentIdToString(InstrumentId instrument_id) -> std::string {
-        if (UNLIKELY(instrument_id == InstrumentId_INVALID)) {
+    inline auto instrumentIdToString(InstrumentId instrument_id) -> std::string
+    {
+        if (UNLIKELY(instrument_id == InstrumentId_INVALID))
+        {
             return "INVALID";
         }
         return std::to_string(instrument_id);
     }
 
-    struct ClientOrderId {
+    struct ClientOrderId
+    {
         char data[16];
     };
-    inline auto clientOrderIdToString(const ClientOrderId& client_order_id) -> std::string {
+    inline auto clientOrderIdToString(const ClientOrderId &client_order_id) -> std::string
+    {
         return std::string(client_order_id.data, 16);
     }
 
@@ -103,8 +109,10 @@ namespace types
 
     typedef uint64_t Price;
     constexpr auto Price_INVALID = std::numeric_limits<Price>::max();
-    inline auto priceToString(Price price) -> std::string {
-        if (UNLIKELY(price == Price_INVALID)) {
+    inline auto priceToString(Price price) -> std::string
+    {
+        if (UNLIKELY(price == Price_INVALID))
+        {
             return "INVALID";
         }
         return std::to_string(price);
@@ -112,8 +120,10 @@ namespace types
 
     typedef uint16_t Quantity;
     constexpr auto Quantity_INVALID = std::numeric_limits<Quantity>::max();
-    inline auto quantityToString(Quantity quantity) -> std::string {
-        if (UNLIKELY(quantity == Quantity_INVALID)) {
+    inline auto quantityToString(Quantity quantity) -> std::string
+    {
+        if (UNLIKELY(quantity == Quantity_INVALID))
+        {
             return "INVALID";
         }
         return std::to_string(quantity);
@@ -138,8 +148,10 @@ namespace types
 
     typedef uint64_t TimeStamp;
     constexpr auto TimeStamp_INVALID = std::numeric_limits<TimeStamp>::max();
-    inline auto timeStampToString(TimeStamp timestamp) -> std::string {
-        if (UNLIKELY(timestamp == TimeStamp_INVALID)) {
+    inline auto timeStampToString(TimeStamp timestamp) -> std::string
+    {
+        if (UNLIKELY(timestamp == TimeStamp_INVALID))
+        {
             return "INVALID";
         }
         return std::to_string(timestamp);
@@ -148,8 +160,10 @@ namespace types
     // this is internal order id used by the exchange
     typedef uint64_t OrderId;
     constexpr auto OrderId_INVALID = std::numeric_limits<OrderId>::max();
-    inline auto orderIdToString(OrderId order_id) -> std::string {
-        if (UNLIKELY(order_id == OrderId_INVALID)) {
+    inline auto orderIdToString(OrderId order_id) -> std::string
+    {
+        if (UNLIKELY(order_id == OrderId_INVALID))
+        {
             return "INVALID";
         }
         return std::to_string(order_id);
@@ -157,8 +171,10 @@ namespace types
 
     typedef uint32_t CrossId;
     constexpr auto CrossId_INVALID = std::numeric_limits<CrossId>::max();
-    inline auto crossIdToString(CrossId cross_id) -> std::string {
-        if (UNLIKELY(cross_id == CrossId_INVALID)) {
+    inline auto crossIdToString(CrossId cross_id) -> std::string
+    {
+        if (UNLIKELY(cross_id == CrossId_INVALID))
+        {
             return "INVALID";
         }
         return std::to_string(cross_id);
@@ -166,8 +182,10 @@ namespace types
 
     typedef uint32_t MatchId;
     constexpr auto MatchId_INVALID = std::numeric_limits<MatchId>::max();
-    inline auto matchIdToString(MatchId match_id) -> std::string {
-        if (UNLIKELY(match_id == MatchId_INVALID)) {
+    inline auto matchIdToString(MatchId match_id) -> std::string
+    {
+        if (UNLIKELY(match_id == MatchId_INVALID))
+        {
             return "INVALID";
         }
         return std::to_string(match_id);
@@ -175,8 +193,10 @@ namespace types
 
     typedef uint8_t CancelReason;
     constexpr auto CancelReason_INVALID = std::numeric_limits<CancelReason>::max();
-    inline auto cancelReasonToString(CancelReason reason) -> std::string {
-        if (UNLIKELY(reason == CancelReason_INVALID)) {
+    inline auto cancelReasonToString(CancelReason reason) -> std::string
+    {
+        if (UNLIKELY(reason == CancelReason_INVALID))
+        {
             return "INVALID";
         }
         return std::string(1, static_cast<char>(reason));
@@ -198,8 +218,10 @@ namespace types
 
     typedef uint16_t RejectCode;
     constexpr auto RejectCode_INVALID = std::numeric_limits<RejectCode>::max();
-    inline auto rejectCodeToString(RejectCode code) -> std::string {
-        if (UNLIKELY(code == RejectCode_INVALID)) {
+    inline auto rejectCodeToString(RejectCode code) -> std::string
+    {
+        if (UNLIKELY(code == RejectCode_INVALID))
+        {
             return "INVALID";
         }
         return std::to_string(code);
