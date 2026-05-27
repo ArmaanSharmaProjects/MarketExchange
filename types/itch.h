@@ -1,4 +1,9 @@
 #pragma once
+#pragma once
+#include <cstdint>   
+#include <limits>    // For std::numeric_limits
+#include <string>   
+#include <cstring>   // For std::memcmp
 #include "types.h"
 
 // Force 1-byte alignment for network packing
