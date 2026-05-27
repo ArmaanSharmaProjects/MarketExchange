@@ -8,6 +8,7 @@ namespace types
 {
     enum class MsgType : char
     {
+        // Internal & OUCH Messages
         NEW_ORDER = 'B',
         CANCEL_ORDER = 'C',
         EDIT_ORDER = 'R',
@@ -16,6 +17,15 @@ namespace types
         ORDER_CANCELED = 'c',
         ORDER_EXECUTED = 'e',
         ORDER_REJECTED = 'j',
+
+        // ITCH Messages
+        ITCH_ADD_ORDER = 'A',
+        ITCH_ORDER_EXECUTED = 'E',
+        ITCH_ORDER_CANCEL = 'X',
+        ITCH_ORDER_DELETE = 'D',
+        ITCH_ORDER_REPLACE = 'U',
+
+
         INVALID = '\xFF'
     };
 
