@@ -10,8 +10,9 @@ struct PriceLevel {
     types::Price    price;
     types::Quantity total_qty;
     uint32_t        order_count;
+    // added above stuff for quick price level data could be useful
     Order*          head;
-    Order*          tail;
+    Order*          tail; // add this for quick appends
 };
 
 struct PriceLevelIndex {
