@@ -13,11 +13,9 @@ enum class OrderStatus : uint8_t {
 
 struct Order {
     types::OrderId       order_id;
-    types::MatchId       match_id;
 
     types::ClientOrderId client_order_id;
     types::FirmId        firm_id;
-    types::InstrumentId  instrument_id;
 
     types::Side          side;
     types::OrderType     order_type;
