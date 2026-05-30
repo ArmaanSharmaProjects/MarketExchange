@@ -23,6 +23,8 @@ private:
     void              freeOrder(orderbook::Order* order);
 
     orderbook::MarketExchange& exchange_;
+    
+
 
     types::OrderId next_order_id_{ 0 };
     types::MatchId next_match_id_{ 0 };
@@ -31,6 +33,9 @@ private:
     std::unordered_map<uint64_t, types::OrderId>          client_order_map_;
 
     orderbook::Order* free_list_{ nullptr };
+
+    
+
 };
 
 } 
